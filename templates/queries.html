@@ -1,0 +1,10 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+<h1>Queries:</h1>
+    <ol>
+        {% for query in queries %}
+        <li><code>{{ query }}</code></li>
+        {% endfor %}
+    </ol>
+{% endblock %}

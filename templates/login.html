@@ -1,0 +1,18 @@
+{% extends "templates/base.html" %}
+
+{% block content %}
+  <h1>Login</h1>
+  <form action="/login" method="POST">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp">
+      <div id="usernameHelp" class="form-text"></div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="text" class="form-control" id="password" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}
+  

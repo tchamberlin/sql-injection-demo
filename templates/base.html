@@ -1,0 +1,41 @@
+<head>
+  <title>Intro to SQL Injection</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="/static/css/pygments.css">
+</head>
+
+{% include 'templates/nav.html' %}
+<body>
+  <main class="container">
+    {% for message in errors %}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>ERROR</strong>: {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+    <div class="row">
+      <div class="col-sm-7">
+        {% block content %}{% endblock %}
+      </div>
+
+      <div class="col-sm-5">
+        {% if queries %}
+          <h2>Queries</h2>
+          <ol>
+            {% for dt, query, error in queries %}
+            <li>
+              <code>{{ dt.strftime('%H:%M:%S') }}{% if error %} [ERROR]{% endif %}</code>
+              <br>
+              {{ query|safe }}
+              {% if error %}
+              <code><pre>{{error}}</pre></code>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ol>
+        {% endif %}
+      </div>
+    </div>
+  </main>
+</body>
