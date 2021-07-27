@@ -4,6 +4,11 @@
     {% if success == True %}
         <h1 class="display-5 fw-bold">Login Successful</h1>
         <p class="fs-4">Welcome, <strong>{{ username }}</strong>!</p>
+        <a class="btn btn-primary btn-lg mb-3" type="button" href="/students">View Students</a>
+        {% if username == "admin" %}
+            <a class="btn btn-danger btn-lg mb-3" type="button" href="/students">Do Dangerous Admin Stuff</a>
+        {% endif %}
+
     {% else %}
         <h1 class="display-5 fw-bold">Login Failed</h1>
         <p class="fs-4">Incorrect username or password (or user <strong>{{username}}</strong> does not exist)</p>

@@ -1,0 +1,11 @@
+repos:
+  - repo: https://github.com/jazzband/pip-tools
+    rev: 6.2.0
+    hooks:
+      - id: pip-compile
+        args: ["--generate-hashes"]
+
+  - repo: 'https://github.com/psf/black'
+    rev: 20.8b1
+    hooks:
+      - id: black

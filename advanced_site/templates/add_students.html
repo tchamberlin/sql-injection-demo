@@ -2,7 +2,7 @@
 
 {% block content %}
   <h1>Students</h1>
-  <form action="/students/add" method="POST">
+  <form action="{{submit_to}}" method="POST">
     <div class="row">
       <div class="col mb-3">
         <label for="first_name" class="form-label">First Name</label>
@@ -12,6 +12,10 @@
       <div class="col mb-3">
         <label for="last_name" class="form-label">Last Name</label>
         <input type="text" class="form-control" id="last_name" name="last_name">
+      </div>
+      <div class="col mb-3">
+        <label for="card_info" class="form-label">Card Info</label>
+        <input type="text" class="form-control" id="card_info" name="card_info">
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Add Student</button>
@@ -23,13 +27,15 @@
       <th>ID</th>
       <th>First Name</th>
       <th>Last Name</th>
+      <th>Credit Card</th>
     </thead>
     
-    {% for pk, first_name, last_name in students %}
+    {% for pk, first_name, last_name, card_info in students %}
     <tr>
       <td>{{ pk }}</td>
       <td>{{ first_name }}</td>
       <td>{{ last_name }}</td>
+      <td>{{ card_info }}</td>
     </tr>
     {% endfor %}
   </table>

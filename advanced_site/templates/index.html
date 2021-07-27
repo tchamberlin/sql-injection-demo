@@ -1,0 +1,32 @@
+{% extends "templates/base_no_query.html" %}
+{% block content %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<h1 class="mb-3 visually-hidden">SQL Injection Demo</h1>
+
+<h2>"The Comic"</h2>
+<img src="//imgs.xkcd.com/comics/exploits_of_a_mom.png" title="Her daughter is named Help I'm trapped in a driver's license factory." alt="Exploits of a Mom" style="image-orientation:none">
+<p></p>
+
+<a href="https://xkcd.com/327/">https://xkcd.com/327/</a>
+<hr>
+
+<h2>How does a website work</h2>
+
+<div class="mermaid">
+    graph LR
+    subgraph "Your Computer"
+        browser
+    end
+    subgraph "Some Other Computer"
+        server
+        database
+    end
+    you(You) -->|"click stuff"| browser
+    browser -->|"the internet"| server
+    server -->|query| database{database}
+  
+</div>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">Intro to SQL Injection</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,14 +6,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
         <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
+          <a class="nav-link {% if path == '/students' %}active{%endif%}" href="/students">View Students</a>
         </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="/logout">Logout</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/students">Students</a>
+          {% if logged_in %}
+          <a class="nav-link {% if path == '/logout' %}active{%endif%}" href="/logout">Logout</a>
+          {% else %}
+          <a class="nav-link {% if path == '/login' %}active{%endif%}" href="/login">Login</a>
+          {% endif %}
         </li>
       </ul>
     </div>
