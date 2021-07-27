@@ -3,3 +3,4 @@ psycopg2-binary
 Jinja2
 python-dotenv
 Faker
+pygments
